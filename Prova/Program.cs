@@ -42,6 +42,16 @@ namespace Prova
                     s.Stop();
                     elapsed = s.ElapsedMilliseconds;
                     w.WriteLine($"InsertionSort; {dim}; {elapsed}");
+                    s.Reset();
+                    for (int i = 0; i < array.Length; i++)
+                    {
+                        array[i] = r.Next(0, 100000);
+                    }
+                    s.Start();
+                    Array.Sort(array);
+                    s.Stop();
+                    elapsed = s.ElapsedMilliseconds;
+                    w.WriteLine($"Array.Sort; {dim}; {elapsed}");
                     w.Flush();
                 }
                 Console.WriteLine("finito");
